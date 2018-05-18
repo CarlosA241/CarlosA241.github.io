@@ -1,2 +1,10 @@
+var isBuilder = $('html').hasClass('is-builder');
 
-var isBuilder=$("html").hasClass("is-builder");isBuilder||0!=$("section.popup-btn-cards").length&&$("section.popup-btn-cards .card-wrapper").each(function(a,b){$(this).addClass("popup-btn")});
+if (!isBuilder) {
+    if(typeof window.initPopupBtnPlugin === 'undefined'){
+        window.initPopupBtnPlugin = true;
+        $('section.popup-btn-cards .card-wrapper').each(function(index, el) {
+            $(this).addClass('popup-btn');
+        });        
+    }
+}
